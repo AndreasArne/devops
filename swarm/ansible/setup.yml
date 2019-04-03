@@ -1,0 +1,9 @@
+# only used to run the users and ports playbooks
+---
+    -   hosts: belly-whale
+        remote_user: root # Login as root
+        # become: yes # escelate priveledge - this and below probably not needed as is already loged in as root
+        # become_method: sudo # using sudo
+        # become_user: root # change to use root while on server
+        roles: 
+            -   users

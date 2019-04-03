@@ -1,0 +1,6 @@
+# ansible-playbook users.yml to run
+---
+    -   hosts: belly-whale
+        remote_user: root # Login as root
+        roles: 
+            -   users

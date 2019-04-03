@@ -1,0 +1,24 @@
+---
+-   name: Allow access to port 22
+    ufw:
+        from_ip: "{{ ansible_default_ipv4.address }}"
+        rule: allow
+        insert: 1
+        port: 22
+        proto: tcp
+    notify:
+        -   Restart ufw
+
+- name: Open ports for docker
+  ufw:
+      rule: allow
+      port: "{{ item.port }}"
+      proto: "{{ item.proto }}"
+  with_items:
+    - { port: '2376', proto: 'tcp'}
+    - { port: '2377', proto: 'tcp'}
+    - { port: '7946', proto: 'tcp'}
+    - { port: '7946', proto: 'udp'}
+    - { port: '4789', proto: 'udp'}
+  notify:
+    - Restart ufw

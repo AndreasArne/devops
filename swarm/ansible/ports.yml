@@ -1,0 +1,8 @@
+# ansible-playbook setup.yml to run
+---
+    -   hosts: belly-whale
+        remote_user: admin
+        become: true # escelate priveledge
+        become_method: sudo # using sudo, might not be needed. Default method is sudo i think
+        roles: 
+            -   ports

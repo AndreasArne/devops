@@ -1,0 +1,26 @@
+---
+    -   name: Create Admin user
+        user:
+            name: admin
+            password: "{{ admin_password}}"
+            groups: sudo,docker
+            shell: /bin/bash
+            state: present
+    -   name: Add Admin Authorized key
+        authorized_key:
+            user: admin
+            key: "{{ shared_publickey}}"
+            state: present
+    -   name: Add Admin to sudoers
+        copy:
+            dest: "/etc/sudoers.d/swarm"
+            content: "admin ALL=(ALL) NOPASSWD: ALL"
+    -   name: Disable Root Login
+        lineinfile:
+           dest: /etc/ssh/sshd_config
+           regexp: '^PermitRootLogin'
+           line: "PermitRootLogin no"
+           state: present
+           backup: yes
+        notify:
+           - restart ssh
