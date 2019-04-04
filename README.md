@@ -20,8 +20,12 @@ Instead of running this for each server we can use the CM tool (configuration ma
 - Quick tutorial for Ansible https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04
 - Shows how to structure Ansible in a project https://serversforhackers.com/c/ansible-roles
 - How to create a user with Ansible with vault https://serversforhackers.com/c/create-user-in-ansible
+- Multiple SSH keys https://stackoverflow.com/questions/26256227/ansible-with-multiple-ssh-key-pair/26260799 http://minimum-viable-automation.com/ansible/managing-users-accounts-ansible/
+- Example of using ansible for CI/CD flow http://codespair.com/ansible-setup-digital-ocean
+- Example playbook for creating DO droplet https://gist.github.com/rdhyee/7047660
 
 Added `export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt` to `.profile` so don't have to enter password for vault every time. The file only contains the password.
+Added `export ANSIBLE_HOST_KEY_CHECKING=False` to stop Ansible from checking if known_hosts has changed. If the servers get new ip i can't use sane name for the servers in Ansible.
 
 
 ### To-Do
