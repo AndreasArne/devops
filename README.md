@@ -23,3 +23,6 @@ Instead of running this for each server we can use the CM tool (configuration ma
 
 Added `export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt` to `.profile` so don't have to enter password for vault every time. The file only contains the password.
 
+
+### To-Do
+- Create servers with Ansible. Now i need to create them manually first.
