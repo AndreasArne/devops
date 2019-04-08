@@ -1,4 +1,13 @@
 
+IaC tutorial
+==================
+
+Different tools for IaC, https://github.com/Artemmkin/infrastructure-as-code-tutorial/blob/master/, using google cloud to host servers.
+
+
+
+
+
 Swarm
 ==================
 
@@ -23,9 +32,15 @@ Instead of running this for each server we can use the CM tool (configuration ma
 - Multiple SSH keys https://stackoverflow.com/questions/26256227/ansible-with-multiple-ssh-key-pair/26260799 http://minimum-viable-automation.com/ansible/managing-users-accounts-ansible/
 - Example of using ansible for CI/CD flow http://codespair.com/ansible-setup-digital-ocean
 - Example playbook for creating DO droplet https://gist.github.com/rdhyee/7047660
+- Get masters ip https://stackoverflow.com/a/33957286
 
-Added `export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt` to `.profile` so don't have to enter password for vault every time. The file only contains the password.
-Added `export ANSIBLE_HOST_KEY_CHECKING=False` to stop Ansible from checking if known_hosts has changed. If the servers get new ip i can't use sane name for the servers in Ansible.
+
+
+#### Environments variables
+
+Added `export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault_pass.txt` to `.profile` so don't have to enter password for vault every time. The file only contains the password.  
+Added `export ANSIBLE_HOST_KEY_CHECKING=False` to stop Ansible from checking if known_hosts has changed. If the servers get new ip i can't use same name for the servers in Ansible.
+
 
 
 ### To-Do
