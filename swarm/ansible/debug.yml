@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - debug: var=ansible_all_ipv4_addresses
+    - debug: var=ansible_eth0.ipv4.address
+    - name: setup
+      setup:
+      delegate_to: 127.0.0.1
+
+    - name: set ansible control host IP fact
+      set_fact:
+        ansible_control_host_address: "{{ hostvars[inventory_hostname]['ansible_eth0']['ipv4']['address'] }}"
+      delegate_to: 127.0.0.1
+
+    - debug: var=ansible_control_host_address

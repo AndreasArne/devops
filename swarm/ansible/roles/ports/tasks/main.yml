@@ -1,7 +1,17 @@
 ---
+    # https://stackoverflow.com/a/33957286 got get master ip
+-   name: setup
+    setup:
+    delegate_to: 127.0.0.1
+-   name: Set Master IP to variable
+    set_fact:
+        ansible_control_host_address: "{{ hostvars[inventory_hostname]['ansible_eth0']['ipv4']['address'] }}"
+    delegate_to: 127.0.0.1
+-   debug: var=ansible_control_host_address
+
 -   name: Allow access to port 22
     ufw:
-        from_ip: "{{ ansible_default_ipv4.address }}"
+        from_ip: "{{ ansible_control_host_address }}"
         rule: allow
         insert: 1
         port: 22
@@ -15,6 +25,8 @@
       port: "{{ item.port }}"
       proto: "{{ item.proto }}"
   with_items:
+    - { port: '80', proto: 'tcp'}
+    - { port: '443', proto: 'tcp'}
     - { port: '2376', proto: 'tcp'}
     - { port: '2377', proto: 'tcp'}
     - { port: '7946', proto: 'tcp'}

@@ -9,7 +9,7 @@
     -   name: Add Admin Authorized key
         authorized_key:
             user: admin
-            key: "{{ shared_publickey}}"
+            key: "{{ shared_publickey }}"
             state: present
     -   name: Add Admin to sudoers
         copy:
