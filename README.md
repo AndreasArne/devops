@@ -4,7 +4,8 @@ IaC tutorial
 
 Different tools for IaC, https://github.com/Artemmkin/infrastructure-as-code-tutorial/blob/master/, using google cloud to host servers.
 
-
+- Get instance ip of Google server: INSTANCE_IP=$(gcloud --format="value(networkInterfaces[0].accessConfigs[0].natIP)" compute instances describe raddit-instance-3)
+- Packer, https://github.com/Artemmkin/infrastructure-as-code-tutorial/blob/master/docs/04-packer.md, used to create images which can be used start VMs with.
 
 
 
