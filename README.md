@@ -13,6 +13,7 @@ Different tools for IaC, https://github.com/Artemmkin/infrastructure-as-code-tut
 - Ansible, https://github.com/Artemmkin/infrastructure-as-code-tutorial/blob/master/docs/06-ansible.md, used to configure the VM after we start it with Terraform.
 - Use Packer to create image, terraform create VM using image, Ansible to config image and VM.
 - Propblem: keeping ip adresses up to date. Using Pakcer, Terraform and ansible to create VM and then i get a new ip which needs to be updated in Ansible hosts for Deploy script to work.
+- Kubernetes: Advanced shit... don't follow exactly what everything did but it worked, quite easily as well. However i have read alot on other places that it is hard and things don't always work.
 
 Swarm
 ==================
